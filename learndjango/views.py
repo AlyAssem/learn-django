@@ -11,12 +11,12 @@ def home_view(request):
     takes in a request
     returns Html response
     """
-    x = Article.objects.get(id=1)
+
+    # the query set can be filtered and has many other functionalities from a normal list.
+    article_queryset = Article.objects.all()
 
     context = {
-        "id": x.id,
-        "title": x.title,
-        "content": x.content
+        "articles": article_queryset,
     }
 
     HOME_STRING = render_to_string("home-view.html", context=context)

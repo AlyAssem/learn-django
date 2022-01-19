@@ -1,4 +1,8 @@
 {% extends "base.html" %} {% block content_variable %}
-<h1>{{id}}: {{title}}</h1>
-<p>{{content}}</p>
+<ul>
+  {% for article in articles %} {% if article.title %}
+  <li>{{article.content}}</li>
+
+  {% endif %} {% endfor %}
+</ul>
 {% endblock content_variable %}
