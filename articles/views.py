@@ -4,6 +4,20 @@ from articles.models import Article
 # Create your views here.
 
 
+def article_create_view(request):
+    # this method runs on both post and get for the given url
+    context = {}
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        article_to_add = Article.objects.create(title=title, content=content)
+
+        context['article_obj'] = article_to_add
+        context['created'] = True
+
+    return render(request, "articles/create.html", context)
+
+
 def article_search_view(request):
     query_dict = request.GET
     try:
