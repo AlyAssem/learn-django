@@ -2,13 +2,8 @@
 <div>
   <h1>Create an article</h1>
   <form action="/articles/create" method="POST">
-    {% csrf_token %}
-    <div style="margin-top: 10px">
-      <input type="text" name="title" placeholder="title" />
-    </div>
-    <div style="margin-top: 10px">
-      <textarea name="content" placeholder="content"></textarea>
-    </div>
+    {% csrf_token %} 
+    {{ form.as_p }}
     <button type="submit">Create article</button>
   </form>
 </div>
